@@ -64,7 +64,12 @@ endif
 
 " Should be the Vim-Dispatch plugin used for asynchronous tags generating if present?
 if !exists('g:vim_tags_use_vim_dispatch')
-    let g:vim_tags_use_vim_dispatch = 1
+    let g:vim_tags_use_vim_dispatch = 0
+endif
+
+" Yet another asynchronous execution library
+if !exists('g:vim_tags_use_vimproc')
+    let g:vim_tags_use_vimproc = 0
 endif
 
 " Should the --field+=l option be used
@@ -131,6 +136,8 @@ let s:options = join(options, ' ')
 fun! s:execute_async_command(command)
     if g:vim_tags_use_vim_dispatch && exists('g:loaded_dispatch')
         silent! exe 'Start!' a:command
+    elseif g:vim_tags_use_vimproc && exists('g:loaded_vimproc')
+        silent! exe 'VimProcBang' a:command       
     else
         silent! exe '!' . a:command '&'
     endif
