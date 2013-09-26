@@ -158,7 +158,7 @@ The Vim-Tags available variables are:
 
 * `vim_tags_use_vim_dispatch`
 
-    * Default: `1`
+    * Default: `0`
 
     [`Vim-Dispatch`](https://github.com/tpope/vim-dispatch) is a plugin allowing asynchronous calls of
     system commands. `Vim-Tags` will try to use it (if found) to perform asynchronous tags generation.
@@ -166,6 +166,15 @@ The Vim-Tags available variables are:
 
         let g:vim_tags_use_vim_dispatch = 1
 
+
+
+* `vim_tags_use_vimproc`
+
+    * Default: `0`
+    
+    [`vimproc`](https://github.com/Shougo/vimproc) is a plugin asynchronous execution library for Vim.
+    
+        let g:vim_tags_use_vimproc = 1
 
 
 
